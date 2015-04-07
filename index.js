@@ -1,5 +1,6 @@
 var async = require('async');
 var sprintf = require('sprintf');
+var moment = require('moment');
 
 var log = require('logmagic').local('treslek.plugins.url');
 
@@ -53,7 +54,7 @@ Memo.prototype.memo = function(bot, to, from, msg, callback) {
           memoObj = {};
 
       memoObj = {
-        time: new Date().getTime().toString(),
+        time: Date.now().toString(),
         from: from,
         to: to,
         msg: text
@@ -129,7 +130,7 @@ Memo.prototype.memoHook = function(bot, to, from, msg, callback) {
                 return;
               }
 
-              bot.say(from, sprintf('%s said: %s', memoObj.from, memoObj.msg));
+              bot.say(from, sprintf('%s said %s: %s', memoObj.from, moment(parseInt(memoObj.time, 10)).from(Date.now()), memoObj.msg));
               callback();
             });
           } else {

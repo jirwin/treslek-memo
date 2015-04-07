@@ -24,6 +24,7 @@
   "dependencies": {
     "async": "^0.9.0",
     "logmagic": "^0.1.4",
+    "moment": "^2.10.0",
     "sprintf": "^0.1.5"
   }
 }
